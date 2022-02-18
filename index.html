@@ -18,35 +18,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1 class="winner-message"></h1>
+            <button id="play-btn">Play Again</button>
+        </div>
+    </div>
     <div class="page-grid">
         <div class="title-container">
             <h1 id="game-title">Rock Paper Scissors</h1>
             <h2>First To Five!</h2>
+        </div>
         <div class="round-container">
             <h2>ROUND</h2>
-            <div class="round-number">
+            <h2 class="round-number">
                 1
-            </div>
-        </div>
+            </h2>
         </div>
         <div class="game-grid">
-           
-            <div id="user-score-container" class="score-container">
-                <h3>WIN</h3>
-                <div id="user-score" class="score">
-                    0
+            <div class="score-grid">
+                <div id="user-score-container" class="score-container">
+                    <h3>WIN</h3>
+                    <div id="user-score" class="score">
+                        0
+                    </div>
                 </div>
-            </div>
-            <div id="tie-score-container" class="score-container">
-                <h3>TIE</h3>
-                <div id="tie-score" class="score">
-                    0
+                <div id="tie-score-container" class="score-container">
+                    <h3>TIE</h3>
+                    <div id="tie-score" class="score">
+                        0
+                    </div>
                 </div>
-            </div>
-            <div id="computer-score-container" class="score-container">
-                <h3>WIN</h3>
-                <div id="computer-score" class="score">
-                    0
+                <div id="computer-score-container" class="score-container">
+                    <h3>WIN</h3>
+                    <div id="computer-score" class="score">
+                        0
+                    </div>
                 </div>
             </div>
             <div id="user-box" class="player-box">

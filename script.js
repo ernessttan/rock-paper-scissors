@@ -122,16 +122,19 @@ function playRound(userSelection, computerSelection) {
     }  
 }
 
-
-
 // Function for a full game
 function game(userMove) {
     console.log('Game Start');
-    if (userScore === 5 || computerScore === 5) {
+    if (userScore === 5) {
+        $('.modal').css({"display": "block"});
+        $('.winner-message').text('You Win!')
         return;
-    } else {
+    } else if (computerScore === 5) {
+        $('.modal').css({"display": "block"});
+        $('.winner-message').text('Computer Wins!') 
+    }
+    
+    else {
         playRound(userMove, computerPlay());
     } 
 }
-
-// Function to receive user input
