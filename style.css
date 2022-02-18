@@ -24,13 +24,25 @@ li {
 .margin-left {
     margin-left: 40px;
 }
+.space-between {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.move {
+    max-width: 50px;
+    max-height: 50px;
+}
+h3 {
+    color: gray;
+}
 /* Overall Page Grid */
 .page-grid {
     display: grid;
-    grid-template-rows: 0.2fr 1fr;
+    grid-template-rows: 0.2fr 0.2fr 1fr;
     grid-template-columns: 1fr;
     grid-template-areas:
     "title" 
+    "round-number"
     "choices";
 
 }
@@ -42,29 +54,42 @@ li {
 #game-title {
     font-weight: 800;
 }
+/* Round Number */
+.round-container {
+    grid-area: round-number;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 /* Game Grid */
 .game-grid {
+    display: grid;
     margin-right: auto;
     margin-left: auto;
-    display: grid;
-    grid-template-rows: 0.5fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-    "playerscore tiescore compscore"
-    "player space computer";
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 0.5fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "user-score tie-score computer-score"
+      "player-box . computer-box"; 
 }
 /* Score Styles */
 .score {
     text-align: center;
+    font-size: 25px;
 }
-#user-score {
-    grid-area: playerscore;
+.score-container {
+    text-align: center;
+}
+#user-score-container {
+    grid-area: user-score;
 }
 #tie-score {
-    grid-area: tiescore;
+    grid-area: tie-score;
 }
 #computer-score {
-    grid-area: compscore
+    grid-area: computer-score;
 }
 /* Player Styles */
 .player-box {
@@ -76,10 +101,10 @@ li {
     min-width: 300px;
 }
 #user-box {
-    grid-area: player;
+    grid-area: player-box;
 }
 #computer-box {
-    grid-area: computer;
+    grid-area: computer-box;
 }
 .choice-container {
     display: flex;
@@ -97,23 +122,19 @@ li {
     max-width: 80px;
     max-height: 80px;
 }
-.spacer {
-    grid-area: space;
-}
-.placeholder-choice {
-    font-size: 30px;
-}
 #computer-choices {
     margin-top: 20px;
     display: flex;
     font-size: 25px;
     justify-content: center;
 }
-.space-between {
-    margin-left: 50px;
-    margin-right: 50px;
+.user-choice {
+    font-size: 50px;
 }
-.move {
-    max-width: 50px;
-    max-height: 50px;
+.computer-choice {
+    font-size: 50px;
+}
+.move-icon {
+    max-width: 150px;
+    max-height: 150px;
 }
