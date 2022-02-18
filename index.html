@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-grid">
+        <div class="title-container">
+            <h1 id="game-title">Rock Paper Scissors</h1>
+            <h2>First To Five!</h2>
+        </div>
+        <div class="game-grid">
+            <div id="user-score-container" class="score">
+                <h3>Wins</h3>
+                <div id="user-score">
+                    0
+                </div>
+            </div>
+            <div id="tie-score-container" class="score">
+                <h3>Ties</h3>
+                <div id="tie-score">
+                    0
+                </div>
+            </div>
+            <div id="computer-score-container" class="score">
+                <h3>Wins</h3>
+                <div id="computer-score">
+                    0
+                </div>
+            </div>
+            <div id="user-box" class="player-box">
+                <div class="choice-container">
+                    <div class="user-choice">?</div>
+                </div>
+                <div class="player-options">
+                    <button class="choice" id="rock">
+                        <img src="images/rock.svg">
+                    </button>
+                    <button class="choice" id="paper">
+                        <img src="images/paper.svg">
+                    </button>
+                    <button class="choice" id="scissors">
+                        <img src="images/scissors.svg">
+                    </button>
+                </div>
+            </div>
+            <div class="move-history">
+                <ul class="moves">
+                </ul>
+            </div>
+            <div id="computer-box" class="player-box">
+                <div class="choice-container">
+                    <div class="computer-choice">?</div>
+                </div>
+                <div id="computer-choices">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
