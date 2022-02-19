@@ -1,33 +1,51 @@
-// Create Array for possible moves
-
-
-// Global Variables for Score and rounds
 var userScore = 0;
 var computerScore = 0;
 var tieScore = 0;
 var roundNumber = 1;
 
 $(document).ready(function() {
+    $('.choice').on({
+        mouseenter: function() {
+            $(this).css("background-color", "#f5e800");
+        },
+        mouseleave: function() {
+            $(this).css("background-color", "#dbd011");
+        }
+    });
+    $('#play-btn').on({
+        mouseenter: function() {
+            $(this).css("background-color", "#f5e800");
+        },
+        mouseleave: function() {
+            $(this).css("background-color", "#dbd011");
+        }
+    });
     $('#rock').click(function() {
-        game('rock')
-        displayScore();
+        playRound('Rock', computerPlay());
+        displayScore();  
     });
     $('#paper').click(function() {
-        game('paper')
+        playRound('Paper', computerPlay());
         displayScore();
     });
     $('#scissors').click(function() {
-        game('scissors');
+        playRound('Scissors', computerPlay());
         displayScore();
     })
+    $('#play-btn').click(function() {
+        restartGame();
+    });
+    $('.close-btn').click(function() {
+        $('.modal').css({'display': 'none'})
+    });
 });
 
 
 // Function for Computer Move
 function computerPlay() {
-    let moves = ['rock', 'paper', 'scissors'];
+    let moves = ['Rock', 'Paper', 'Scissors'];
     let move = moves[Math.floor(Math.random()*moves.length)];
-    let moveText = 'Computer Chose ' + move;
+    let moveText = move;
     $('#computer-choices').text(moveText);
     return move;
 }
@@ -40,50 +58,50 @@ function displayScore() {
 
 function userWin(userSelection, computerSelection) {
     switch(true) {     
-        case userSelection === 'rock' && computerSelection === 'scissors':
-            $('.user-choice').html('<img class="move-icon" src=images/rock_green.svg>')
-            $('.computer-choice').html('<img class="move-icon" src=images/scissors.svg>')
+        case userSelection === 'Rock' && computerSelection === 'Scissors':
+            $('.user-choice').html('<img class="move-icon" src=images/rock_white.svg>')
+            $('.computer-choice').html('<img class="move-icon" src=images/scissors_white.svg>')
             break;
-        case userSelection === 'paper' && computerSelection === 'rock':
-            $('.user-choice').html('<img class="move-icon" src=images/paper_green.svg>')
-            $('.computer-choice').html('<img class="move-icon" src=images/rock.svg>')
+        case userSelection === 'Paper' && computerSelection === 'Rock':
+            $('.user-choice').html('<img class="move-icon" src=images/paper_white.svg>')
+            $('.computer-choice').html('<img class="move-icon" src=images/rock_white.svg>')
             break;
-        case userSelection === 'scissors' && computerSelection === 'paper':
-            $('.user-choice').html('<img class="move-icon" src=images/scissors_green.svg>')
-            $('.computer-choice').html('<img class="move-icon" src=images/paper.svg>')
+        case userSelection === 'Scissors' && computerSelection === 'Paper':
+            $('.user-choice').html('<img class="move-icon" src=images/scissors_white.svg>')
+            $('.computer-choice').html('<img class="move-icon" src=images/paper_white.svg>')
             break;
     }
 }
 function computerWin(userSelection, computerSelection) {
     switch(true) {     
-        case userSelection === 'rock' && computerSelection === 'paper':
-            ('.computer-choice').html('<img class="move-icon" src=images/paper_green.svg>')
-            $('.user-choice').html('<img class="move-icon" src=images/rock.svg>')
+        case userSelection === 'Rock' && computerSelection === 'Paper':
+            $('.computer-choice').html('<img class="move-icon" src=images/paper_white.svg>')
+            $('.user-choice').html('<img class="move-icon" src=images/rock_white.svg>')
             break;
-        case userSelection === 'paper' && computerSelection === 'scissors':
-            $('.computer-choice').html('<img class="move-icon" src=images/scissors_green.svg>')
-            $('.user-choice').html('<img class="move-icon" src=images/paper.svg>')
+        case userSelection === 'Paper' && computerSelection === 'Scissors':
+            $('.computer-choice').html('<img class="move-icon" src=images/scissors_white.svg>')
+            $('.user-choice').html('<img class="move-icon" src=images/paper_white.svg>')
             break;
-        case userSelection === 'scissors' && computerSelection === 'rock':
-            $('.computer-choice').html('<img class="move-icon" src=images/rock_green.svg>')
-            $('.user-choice').html('<img class="move-icon" src=images/scissors.svg>')
+        case userSelection === 'Scissors' && computerSelection === 'Rock':
+            $('.computer-choice').html('<img class="move-icon" src=images/rock_white.svg>')
+            $('.user-choice').html('<img class="move-icon" src=images/scissors_white.svg>')
             break;
     }
 }
 
 function tie(userSelection, computerSelection) {
     switch(true) {     
-        case userSelection === 'paper' && computerSelection === 'paper':
-            $('.user-choice').html('<img class="move-icon" src=images/paper.svg>')
-            $('.computer-choice').html('<img class="move-icon" src=images/paper.svg>')
+        case userSelection === 'Paper' && computerSelection === 'Paper':
+            $('.user-choice').html('<img class="move-icon" src=images/paper_white.svg>')
+            $('.computer-choice').html('<img class="move-icon" src=images/paper_white.svg>')
             break;
-        case userSelection === 'scissors' && computerSelection === 'scissors':
-            $('.user-choice').html('<img class="move-icon" src=images/scissors.svg>')
-            $('.computer-choice').html('<img class="move-icon" src=images/scissors.svg>')
+        case userSelection === 'Scissors' && computerSelection === 'Scissors':
+            $('.user-choice').html('<img class="move-icon" src=images/scissors_white.svg>')
+            $('.computer-choice').html('<img class="move-icon" src=images/scissors_white.svg>')
             break;
-        case userSelection === 'rock' && computerSelection === 'rock':
-            $('.user-choice').html('<img class="move-icon" src=images/rock.svg>')
-            $('.computer-choice').html('<img class="move-icon" src=images/rock.svg>')
+        case userSelection === 'Rock' && computerSelection === 'Rock':
+            $('.user-choice').html('<img class="move-icon" src=images/rock_white.svg>')
+            $('.computer-choice').html('<img class="move-icon" src=images/rock_white.svg>')
             break;
     }
 }
@@ -102,39 +120,52 @@ function playRound(userSelection, computerSelection) {
             updateRound();
             result = 'Tie!';
             break;
-        case userSelection === 'rock' && computerSelection === 'scissors':
-        case userSelection === 'paper' && computerSelection === 'rock':
-        case userSelection === 'scissors' && computerSelection === 'paper':
+        case userSelection === 'Rock' && computerSelection === 'Scissors':
+        case userSelection === 'Paper' && computerSelection === 'Rock':
+        case userSelection === 'Scissors' && computerSelection === 'Paper':
             userWin(userSelection, computerSelection);
             userScore++;
             roundNumber++;
             updateRound();
             break;
-        case userSelection === 'rock' && computerSelection === 'paper':
-        case userSelection === 'paper' && computerSelection === 'scissors':
-        case userSelection === 'scissors' && computerSelection === 'rock':
+        case userSelection === 'Rock' && computerSelection === 'Paper':
+        case userSelection === 'Paper' && computerSelection === 'Scissors':
+        case userSelection === 'Scissors' && computerSelection === 'Rock':
             computerWin(userSelection, computerSelection);
             computerScore++;
             roundNumber++;
             updateRound();
             result = 'Computer Win';
-            break;     
-    }  
+            break;   
+    }
+    isGameOver();  
 }
 
-// Function for a full game
-function game(userMove) {
-    console.log('Game Start');
-    if (userScore === 5) {
-        $('.modal').css({"display": "block"});
-        $('.winner-message').text('You Win!')
-        return;
-    } else if (computerScore === 5) {
-        $('.modal').css({"display": "block"});
-        $('.winner-message').text('Computer Wins!') 
+function isGameOver() {
+    if (userScore === 5 || computerScore === 5) {
+        openModal();
     }
-    
-    else {
-        playRound(userMove, computerPlay());
-    } 
+}
+
+function openModal() {
+    switch(true) {
+        case userScore === 5:
+            $('.modal').css({"display": "block"});
+            $('.winner-message').text('You Win!')
+            break;
+        case computerScore === 5:
+            $('.modal').css({"display": "block"});
+            $('.winner-message').text('Computer Wins!')
+            break;     
+    }
+}
+
+function restartGame() {
+    $('.modal').css({"display": "none"});
+    userScore = 0;
+    computerScore = 0;
+    tieScore = 0;
+    roundNumber = 1;
+    displayScore();
+    updateRound();
 }

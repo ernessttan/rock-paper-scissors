@@ -15,20 +15,22 @@
     <!-- Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h1 class="winner-message"></h1>
-            <button id="play-btn">Play Again</button>
+        <div class="modal-box">
+            <span class="close-btn">&times;</span>
+            <div class="modal-info">
+                <h1 class="winner-message"></h1>
+                <button id="play-btn">Play Again</button>
+            </div>
         </div>
     </div>
     <div class="page-grid">
         <div class="title-container">
             <h1 id="game-title">Rock Paper Scissors</h1>
-            <h2>First To Five!</h2>
+            <h2>First To Five Wins!</h2>
         </div>
         <div class="round-container">
             <h2>ROUND</h2>
@@ -63,13 +65,13 @@
                 </div>
                 <div class="player-options">
                     <button class="choice" id="rock">
-                        <img src="images/rock.svg">
+                        <img src="images/rock_white.svg">
                     </button>
                     <button class="choice" id="paper">
-                        <img src="images/paper.svg">
+                        <img src="images/paper_white.svg">
                     </button>
                     <button class="choice" id="scissors">
-                        <img src="images/scissors.svg">
+                        <img src="images/scissors_white.svg">
                     </button>
                 </div>
             </div>
